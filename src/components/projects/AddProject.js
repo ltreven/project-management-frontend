@@ -7,7 +7,7 @@ export class AddProject extends Component {
         super(props)
         this.state = {
             title: '',
-            description: ''            
+            description: ''
         }
     }
 
@@ -17,19 +17,19 @@ export class AddProject extends Component {
             title: this.state.title,
             description: this.state.description
         }
-        axios.post("http://localhost:3000/api/projects/", body)
-        .then(response => {
-            // limpiar el formulario.
-            this.setState({
-                title: '',
-                description: ''
+        axios.post("http://localhost:5000/api/projects/", body)
+            .then(response => {
+                // limpiar el formulario.
+                this.setState({
+                    title: '',
+                    description: ''
+                })
+                this.props.updateData()
             })
-            this.props.updateData()
-        })
 
     }
 
-    handleChange = (e) =>{
+    handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -39,18 +39,26 @@ export class AddProject extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <label>Title</label>
-                    <input type="text" 
-                        name="title" 
-                        value={this.state.title} 
-                        onChange={this.handleChange} />
-
-                    <label>Description</label>
-                    <input type="text" 
-                        name="description" 
-                        value={this.state.description} 
-                        onChange={this.handleChange} />
-                    <input type="submit" value="Create Project" />
+                    <div className="form-group">
+                        <label>Title</label>
+                        <input type="text"
+                            name="title"
+                            value={this.state.title}
+                            className="form-control"
+                            onChange={this.handleChange} />
+                    </div>
+                    <div className="form-group">
+                        <label>Description</label>
+                        <input type="text"
+                            name="description"
+                            className="form-control"
+                            value={this.state.description}
+                            onChange={this.handleChange} />
+                        <br />
+                        <input type="submit" 
+                            className="btn btn-primary"
+                            value="Create Project" />
+                    </div>
                 </form>
             </div>
         )

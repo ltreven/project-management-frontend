@@ -17,7 +17,7 @@ export class ProjectList extends Component {
     }
 
     getAllProjects() {
-        axios.get("http://localhost:3000/api/projects/")
+        axios.get("http://localhost:5000/api/projects/")
             .then(response => {
                 this.setState({
                     projects: response.data
@@ -36,7 +36,7 @@ export class ProjectList extends Component {
         ))
 
         return (
-            <div>
+            <div className="container">
                 <div style={{ width: '60%', float: "left" }}>
                     <h1>Projects List</h1>
                     {projects}

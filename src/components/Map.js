@@ -23,7 +23,7 @@ export class Map extends Component {
     handleSubmit = (e) => {
         e.preventDefault()
         // buscar la direccion y mostrar un PIN en el mapa con la dirección
-        axios.get("http://localhost:3000/api/maps?search=" + this.state.search)
+        axios.get("http://localhost:5000/api/maps?search=" + this.state.search)
         .then(response => {
             console.log(response.data)
             // volver a renderizar el mapa con CENTER = lat, lng y un PIN =  lat, lng
