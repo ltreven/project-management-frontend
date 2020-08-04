@@ -35,6 +35,11 @@ export class ProjectList extends Component {
             </div>
         ))
 
+        let add = ""
+        if ( this.props.user) {
+            add = <AddProject updateData={() => this.getAllProjects()} /> 
+        }
+
         return (
             <div className="container">
                 <div style={{ width: '60%', float: "left" }}>
@@ -42,7 +47,7 @@ export class ProjectList extends Component {
                     {projects}
                 </div>
                 <div style={{ width: '40%', float: "right" }}>
-                    <AddProject updateData={() => this.getAllProjects()} /> 
+                    {add}
                 </div>
             </div>
         )

@@ -17,7 +17,7 @@ export class AddProject extends Component {
             title: this.state.title,
             description: this.state.description
         }
-        axios.post("http://localhost:5000/api/projects/", body)
+        axios.post("http://localhost:5000/api/projects/", body, {withCredentials:true})
             .then(response => {
                 // limpiar el formulario.
                 this.setState({
